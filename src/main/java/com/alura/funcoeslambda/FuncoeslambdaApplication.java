@@ -19,12 +19,14 @@ public class FuncoeslambdaApplication implements CommandLineRunner {
 		int resultadoMultiplicacao = calculadora.multiplicacao(2, 2);
 		System.out.println(resultadoMultiplicacao);
 
-		OperacoesFuncional calculadoraAnonima = new OperacoesFuncional() {
-			@Override
-			public int multiplicacao(int a, int b) {
-				return a * b;
-			}
-		};
+		OperacoesFuncional calculadoraAnonima = (a, b) -> a * b;
+
+//		OperacoesFuncional calculadoraAnonima = new OperacoesFuncional() {
+//			@Override
+//			public int multiplicacao(int a, int b) {
+//				return a * b;
+//			}
+//		};
 		System.out.println(calculadoraAnonima.multiplicacao(3, 3));
 	}
 }
