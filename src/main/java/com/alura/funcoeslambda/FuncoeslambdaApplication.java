@@ -1,6 +1,7 @@
 package com.alura.funcoeslambda;
 
 import com.alura.funcoeslambda.modelos.Calculadora;
+import com.alura.funcoeslambda.services.NumeroPrimo;
 import com.alura.funcoeslambda.services.OperacoesFuncional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,6 +20,7 @@ public class FuncoeslambdaApplication implements CommandLineRunner {
 		int resultadoMultiplicacao = calculadora.multiplicacao(2, 2);
 		System.out.println(resultadoMultiplicacao);
 
+		// EXERCÍCIO 1
 		OperacoesFuncional calculadoraAnonima = (a, b) -> a * b;
 
 //		OperacoesFuncional calculadoraAnonima = new OperacoesFuncional() {
@@ -28,5 +30,16 @@ public class FuncoeslambdaApplication implements CommandLineRunner {
 //			}
 //		};
 		System.out.println(calculadoraAnonima.multiplicacao(3, 3));
+
+		// EXERCÍCIO 2
+		NumeroPrimo numeroPrimo = (a) -> {
+			if (a % 2 == 0) {
+				return "primo";
+			} else {
+				return "não é primo";
+			}
+		};
+
+		System.out.println(numeroPrimo.primo(2));
 	}
 }
