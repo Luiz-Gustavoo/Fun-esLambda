@@ -4,6 +4,7 @@ import com.alura.funcoeslambda.modelos.Calculadora;
 import com.alura.funcoeslambda.services.ConverteString;
 import com.alura.funcoeslambda.services.NumeroPrimo;
 import com.alura.funcoeslambda.services.OperacoesFuncional;
+import com.alura.funcoeslambda.services.VerificarPalindromo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,18 +19,17 @@ public class FuncoeslambdaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// EXERCÍCIO 1
-		OperacoesFuncional calculadoraAnonima = (a, b) -> a * b;
-
-//		OperacoesFuncional calculadoraAnonima = new OperacoesFuncional() {
+		//		OperacoesFuncional calculadoraAnonima = new OperacoesFuncional() {
 //			@Override
 //			public int multiplicacao(int a, int b) {
 //				return a * b;
 //			}
 //		};
+
+		OperacoesFuncional calculadoraAnonima = (a, b) -> a * b;
 		System.out.println(calculadoraAnonima.multiplicacao(3, 3));
 
 		// EXERCÍCIO 2
-
 //		NumeroPrimo numeroPrimo = new NumeroPrimo() {
 //			@Override
 //			public String primo(int a) {
@@ -51,7 +51,6 @@ public class FuncoeslambdaApplication implements CommandLineRunner {
 		System.out.println(numeroPrimoLambda.primo(2));
 
 		// EXERCÍCIO 3
-
 //		String textoConverter = "teste";
 //		ConverteString converteString = new ConverteString() {
 //			@Override
@@ -63,6 +62,20 @@ public class FuncoeslambdaApplication implements CommandLineRunner {
 		ConverteString converteStringLambda = (texto) -> texto.toUpperCase();
 		System.out.println(converteStringLambda.converteString("teste"));
 
+		// EXERCÍCIO 4
+
+		VerificarPalindromo verificarPalindromo = new VerificarPalindromo() {
+			@Override
+			public boolean verificarPalindromo(String texto) {
+				StringBuilder textoBuilder = new StringBuilder(texto);
+
+				if(textoBuilder.reverse().equals(texto)) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		};
 
 	}
 }
